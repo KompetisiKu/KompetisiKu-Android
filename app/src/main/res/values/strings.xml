@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">KompetisiKu</string>
+    <string name="title_activity_splash">SplashActivity</string>
+
+    <string name="title_welcome">Selamat Datang di KompetisiKu</string>
+    <string name="description_welcome">Bersiaplah untuk meraih kemenangan dan membangun prestasimu di sini.</string>
+
+    <string name="button_welcome">Ayo mulai</string>
+    <string name="link_login">Sudah punya akun? <b>Masuk</b></string>
+
+    <string name="title_onboarding_1">Tingkatkan Kemampuan Anda</string>
+    <string name="title_onboarding_2">Temukan Lomba Dengan Mudah</string>
+    <string name="title_onboarding_3">Pantau Kegiatan Lomba Anda</string>
+
+    <string name="decription_onboarding_1">Ikuti lomba yang sesuai dengan bidang untuk meningkatkan kemampuan Anda.</string>
+    <string name="decription_onboarding_2">Permudah pencarian &amp; pendaftaran lomba dengan satu aplikasi.</string>
+    <string name="decription_onboarding_3">Kegiatan lomba Anda dapat dipantau dengan mudah dan cepat.</string>
+
+    <string name="button_continue">Lanjut</string>
+    <string name="button_create_account">Buat akun baru</string>
+
+    <string name="dummy_text">Ini adalah teks</string>
+</resources>

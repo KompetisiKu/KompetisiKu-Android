@@ -1,4 +1,4 @@
-package com.bangkit.kompetisiku.ui.theme
+package com.kompetisiku.app.ui.theme
 
 import android.app.Activity
 import android.os.Build
@@ -16,15 +16,25 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = Blue500,
+    secondary = Orange500,
+    tertiary = Orange700,
+    secondaryContainer = Blue50,
+    onSecondaryContainer = Blue500,
+    onSurface = Blue50,
+    onSurfaceVariant = Blue50,
+    background = Blue50
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
+    primary = Blue500,
+    secondary = Orange500,
+    tertiary = Orange500,
+    secondaryContainer = Blue50,
+    onSecondaryContainer = Blue700,
+    onSurface = Blue700,
+    onSurfaceVariant = Blue50,
+    background = Blue50
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),
@@ -41,7 +51,7 @@ private val LightColorScheme = lightColorScheme(
 fun KompetisiKuTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
