@@ -1,8 +1,6 @@
 package com.kompetisiku.app.ui.navigation
 
 import androidx.annotation.DrawableRes
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import com.kompetisiku.app.R
 
 data class Page(

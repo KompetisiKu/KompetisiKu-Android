@@ -16,8 +16,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.kompetisiku.app.ui.activity.main.MainActivity
 import com.kompetisiku.app.R
+import com.kompetisiku.app.ui.activity.main.MainActivity
 import com.kompetisiku.app.ui.theme.KompetisiKuTheme
 import kotlinx.coroutines.delay
 
