@@ -23,12 +23,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.kompetisiku.app.R
 import com.kompetisiku.app.ui.activity.register.RegisterActivity
 import com.kompetisiku.app.ui.components.AppButton
 import com.kompetisiku.app.ui.components.OnBoardingPage
 import com.kompetisiku.app.ui.navigation.pages
+import com.kompetisiku.app.ui.theme.Dimens
 import com.kompetisiku.app.ui.theme.KompetisiKuTheme
 import kotlinx.coroutines.launch
 
@@ -67,9 +67,12 @@ fun OnBoardingScreen(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp, 24.dp),
+                .padding(
+                    Dimens.paddingHorizontalMedium,
+                    Dimens.paddingVerticalLarge
+                ),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(24.dp)
+            verticalArrangement = Arrangement.spacedBy(Dimens.spaceLarge)
         ) {
             val scope = rememberCoroutineScope()
 

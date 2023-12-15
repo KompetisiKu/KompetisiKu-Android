@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ArrowForward
 import androidx.compose.material3.MaterialTheme
@@ -22,10 +21,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.kompetisiku.app.R
 import com.kompetisiku.app.ui.activity.onboarding.OnBoardingActivity
 import com.kompetisiku.app.ui.components.AppButton
+import com.kompetisiku.app.ui.theme.Dimens
 import com.kompetisiku.app.ui.theme.KompetisiKuTheme
 import com.kompetisiku.app.ui.theme.White
 
@@ -43,14 +42,21 @@ fun WelcomeScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .align(Alignment.Center)
-                .offset(0.dp, 48.dp),
+                .offset(
+                    Dimens.offsetX,
+                    Dimens.offsetY
+                ),
             painter = painterResource(R.drawable.welcome),
             contentDescription = null
         )
         Column(
-            modifier = Modifier.padding(16.dp, 24.dp),
+            modifier = Modifier
+                .padding(
+                    Dimens.paddingHorizontalMedium,
+                    Dimens.paddingVerticalLarge
+                ),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(24.dp)
+            verticalArrangement = Arrangement.spacedBy(Dimens.spaceLarge)
         ) {
             Text(
                 text = stringResource(R.string.title_welcome),
@@ -68,9 +74,12 @@ fun WelcomeScreen(
         Column(
             modifier = Modifier
                 .align(Alignment.BottomCenter)
-                .padding(16.dp, 24.dp),
+                .padding(
+                    Dimens.paddingHorizontalMedium,
+                    Dimens.paddingVerticalLarge
+                ),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(24.dp)
+            verticalArrangement = Arrangement.spacedBy(Dimens.spaceLarge)
         ) {
             AppButton(
                 containerColor = MaterialTheme.colorScheme.secondary,

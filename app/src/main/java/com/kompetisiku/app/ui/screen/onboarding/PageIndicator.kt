@@ -11,8 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.kompetisiku.app.ui.theme.Blue200
+import com.kompetisiku.app.ui.theme.Dimens
 import com.kompetisiku.app.ui.theme.KompetisiKuTheme
 
 @Composable
@@ -25,13 +25,13 @@ fun PageIndicator(
 ) {
     Row(
         modifier = modifier,
-        horizontalArrangement = Arrangement.spacedBy(24.dp)
+        horizontalArrangement = Arrangement.spacedBy(Dimens.spaceLarge)
     ) {
         repeat(pageSize) { page ->
             Box(
                 modifier = Modifier
-                    .width(32.dp)
-                    .height(5.dp)
+                    .width(Dimens.pageIndicatorWidth)
+                    .height(Dimens.pageIndicatorHeight)
                     .background(color = if (page == activePage) activeColor else defaultColor)
             )
         }

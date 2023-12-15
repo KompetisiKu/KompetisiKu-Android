@@ -19,8 +19,8 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.kompetisiku.app.R
+import com.kompetisiku.app.ui.theme.Dimens
 import com.kompetisiku.app.ui.theme.KompetisiKuTheme
 import com.kompetisiku.app.ui.theme.White
 
@@ -39,13 +39,16 @@ fun AppIconButton(
         colors = ButtonDefaults.buttonColors(
             containerColor = containerColor
         ),
-        contentPadding = PaddingValues(24.dp, 18.dp),
+        contentPadding = PaddingValues(
+            Dimens.buttonPaddingHorizontalMedium,
+            Dimens.buttonPaddingVerticalMedium
+        ),
         onClick = { onClick() }
     ) {
         Row(
             modifier = Modifier,
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
+            horizontalArrangement = Arrangement.spacedBy(Dimens.spaceSmall)
         ) {
             Text(
                 text = text,

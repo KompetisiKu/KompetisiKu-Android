@@ -5,12 +5,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.kompetisiku.app.ui.navigation.Screen
-import com.kompetisiku.app.ui.screen.onboarding.OnBoardingScreen
-import com.kompetisiku.app.ui.screen.welcome.WelcomeScreen
 
 @Composable
 fun KompetisiKuApp(

@@ -6,7 +6,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import com.kompetisiku.app.ui.screen.splash.SplashScreen
 import com.kompetisiku.app.ui.theme.KompetisiKuTheme
-import kotlinx.coroutines.delay
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : ComponentActivity() {

@@ -16,9 +16,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.kompetisiku.app.ui.navigation.Page
 import com.kompetisiku.app.ui.navigation.pages
+import com.kompetisiku.app.ui.theme.Dimens
 import com.kompetisiku.app.ui.theme.KompetisiKuTheme
 import com.kompetisiku.app.ui.theme.White
 
@@ -29,20 +29,24 @@ fun OnBoardingPage(
 ) {
     Column(
         modifier = modifier,
-        verticalArrangement = Arrangement.spacedBy((-112).dp)
+        verticalArrangement = Arrangement.spacedBy(Dimens.spaceOnBoarding)
     ) {
         Image(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(548.dp),
+                .height(Dimens.imageHeightOnBoarding),
             painter = painterResource(page.image),
             contentDescription = null,
             contentScale = ContentScale.Crop
         )
         Column(
-            modifier = Modifier.padding(16.dp, 24.dp),
+            modifier = Modifier
+                .padding(
+                    Dimens.paddingHorizontalMedium,
+                    Dimens.paddingVerticalLarge
+                ),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(24.dp)
+            verticalArrangement = Arrangement.spacedBy(Dimens.spaceLarge)
         ) {
             Text(
                 text = stringResource(page.title),

@@ -14,8 +14,8 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.kompetisiku.app.R
+import com.kompetisiku.app.ui.theme.Dimens
 import com.kompetisiku.app.ui.theme.KompetisiKuTheme
 import com.kompetisiku.app.ui.theme.White
 
@@ -35,7 +35,12 @@ fun AppButton(
         colors = ButtonDefaults.buttonColors(
             containerColor = containerColor
         ),
-        contentPadding = if (large) PaddingValues(24.dp, 18.dp) else PaddingValues(),
+        contentPadding = if (large) {
+            PaddingValues(
+                Dimens.buttonPaddingHorizontalMedium,
+                Dimens.buttonPaddingVerticalMedium
+            )
+        } else PaddingValues(),
         onClick = { onClick() }
     ) {
         Text(

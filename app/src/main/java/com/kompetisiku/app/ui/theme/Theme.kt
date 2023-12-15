@@ -11,10 +11,13 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+
+val LocalDim = compositionLocalOf { Dimensions() }
 
 private val DarkColorScheme = darkColorScheme(
     primary = Blue500,
@@ -84,3 +87,13 @@ fun KompetisiKuTheme(
         }
     )
 }
+
+object KompetisiKuTheme {
+    val dimens: Dimensions
+        @Composable
+        get() = LocalDim.current
+}
+
+val Dimens: Dimensions
+    @Composable
+    get() = KompetisiKuTheme.dimens
