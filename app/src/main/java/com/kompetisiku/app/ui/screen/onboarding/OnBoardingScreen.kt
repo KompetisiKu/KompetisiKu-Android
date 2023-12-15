@@ -1,5 +1,7 @@
 package com.kompetisiku.app.ui.screen.onboarding
 
+import android.content.Intent
+import androidx.activity.ComponentActivity
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -23,6 +25,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kompetisiku.app.R
+import com.kompetisiku.app.ui.activity.register.RegisterActivity
 import com.kompetisiku.app.ui.components.AppButton
 import com.kompetisiku.app.ui.components.OnBoardingPage
 import com.kompetisiku.app.ui.navigation.pages
@@ -32,10 +35,11 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun OnBoardingScreen(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    activity: ComponentActivity
 ) {
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.primary)
     ) {
@@ -56,7 +60,6 @@ fun OnBoardingScreen(
 
         HorizontalPager(state = pagerState) { index ->
             OnBoardingPage(page = pages[index])
-            
         }
 
         Spacer(modifier = Modifier.weight(1f))
@@ -76,7 +79,7 @@ fun OnBoardingScreen(
                     text = stringResource(buttonState.value),
                     large = true,
                     onClick = {
-
+                        activity.startActivity(Intent(activity, RegisterActivity::class.java))
                     }
                 )
             } else {
@@ -96,7 +99,6 @@ fun OnBoardingScreen(
             }
 
             PageIndicator(
-                modifier = Modifier.fillMaxWidth(),
                 pageSize = pages.size,
                 activePage = pagerState.currentPage
             )
@@ -108,6 +110,6 @@ fun OnBoardingScreen(
 @Composable
 fun PreviewOnBoardingScreen() {
     KompetisiKuTheme {
-        OnBoardingScreen()
+        OnBoardingScreen(activity = ComponentActivity())
     }
 }

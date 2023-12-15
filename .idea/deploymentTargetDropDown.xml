@@ -5,6 +5,9 @@
       <entry key="GreetingPreview">
         <State />
       </entry>
+      <entry key="PreviewSplashScreen">
+        <State />
+      </entry>
       <entry key="app">
         <State>
           <targetSelectedWithDropDown>
@@ -18,7 +21,7 @@
               </deviceKey>
             </Target>
           </targetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2023-12-13T08:53:47.698193500Z" />
+          <timeTargetWasSelectedWithDropDown value="2023-12-14T22:19:59.425682900Z" />
         </State>
       </entry>
     </value>

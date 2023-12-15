@@ -1,5 +1,7 @@
 package com.kompetisiku.app.ui.screen.welcome
 
+import android.content.Intent
+import androidx.activity.ComponentActivity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -22,42 +24,29 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kompetisiku.app.R
+import com.kompetisiku.app.ui.activity.onboarding.OnBoardingActivity
 import com.kompetisiku.app.ui.components.AppButton
 import com.kompetisiku.app.ui.theme.KompetisiKuTheme
 import com.kompetisiku.app.ui.theme.White
-import com.kompetisiku.app.utils.WindowInfo
-import com.kompetisiku.app.utils.rememberWindowInfo
 
 @Composable
 fun WelcomeScreen(
     modifier: Modifier = Modifier,
-    navigateToOnBoarding: () -> Unit
+    activity: ComponentActivity
 ) {
     Box(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.primary),
     ) {
-        val windowInfo = rememberWindowInfo()
-        if (windowInfo.screenWidthInfo is WindowInfo.WindowType.Compact) {
-            Image(
-                modifier = Modifier
-                    .width(300.dp)
-                    .align(Alignment.Center)
-                    .offset(0.dp, 48.dp),
-                painter = painterResource(R.drawable.welcome),
-                contentDescription = null
-            )
-        } else {
-            Image(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .align(Alignment.Center)
-                    .offset(0.dp, 48.dp),
-                painter = painterResource(R.drawable.welcome),
-                contentDescription = null
-            )
-        }
+        Image(
+            modifier = Modifier
+                .fillMaxSize()
+                .align(Alignment.Center)
+                .offset(0.dp, 48.dp),
+            painter = painterResource(R.drawable.welcome),
+            contentDescription = null
+        )
         Column(
             modifier = Modifier.padding(16.dp, 24.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -89,7 +78,7 @@ fun WelcomeScreen(
                 imageVector = Icons.Rounded.ArrowForward,
                 large = true,
                 fillMaxWidth = false,
-                onClick = navigateToOnBoarding
+                onClick = { activity.startActivity(Intent(activity, OnBoardingActivity::class.java)) }
             )
             Text(
                 text = stringResource(R.string.link_login),
@@ -105,6 +94,6 @@ fun WelcomeScreen(
 @Composable
 fun PreviewWelcomeScreen() {
     KompetisiKuTheme {
-        WelcomeScreen(navigateToOnBoarding = { })
+        WelcomeScreen(activity = ComponentActivity())
     }
 }

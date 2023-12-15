@@ -30,8 +30,8 @@ fun AppButton(
     onClick: () -> Unit,
 ) {
     Button(
-        modifier = if (fillMaxWidth) Modifier
-            .fillMaxWidth() else Modifier,
+        modifier = if (fillMaxWidth) modifier
+            .fillMaxWidth() else modifier,
         colors = ButtonDefaults.buttonColors(
             containerColor = containerColor
         ),

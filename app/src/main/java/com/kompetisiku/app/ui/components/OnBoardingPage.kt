@@ -28,8 +28,8 @@ fun OnBoardingPage(
     page: Page
 ) {
     Column(
-        modifier = Modifier,
-        verticalArrangement = Arrangement.spacedBy(-112.dp)
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy((-112).dp)
     ) {
         Image(
             modifier = Modifier

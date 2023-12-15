@@ -24,15 +24,6 @@ fun KompetisiKuApp(
         navController = navController,
         startDestination = Screen.Welcome.route,
     ) {
-        composable(Screen.Welcome.route) {
-            WelcomeScreen(
-                navigateToOnBoarding = {
-                    navController.navigate(Screen.OnBoarding.route)
-                }
-            )
-        }
-        composable(Screen.OnBoarding.route) {
-            OnBoardingScreen()
-        }
+
     }
 }

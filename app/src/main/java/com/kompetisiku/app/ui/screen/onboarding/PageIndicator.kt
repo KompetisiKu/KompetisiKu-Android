@@ -24,7 +24,7 @@ fun PageIndicator(
     defaultColor: Color = Blue200
 ) {
     Row(
-        modifier = Modifier,
+        modifier = modifier,
         horizontalArrangement = Arrangement.spacedBy(24.dp)
     ) {
         repeat(pageSize) { page ->

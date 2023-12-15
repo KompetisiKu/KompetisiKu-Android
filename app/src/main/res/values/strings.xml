@@ -20,4 +20,7 @@
     <string name="button_create_account">Buat akun baru</string>
 
     <string name="dummy_text">Ini adalah teks</string>
+    <string name="title_activity_welcome">WelcomeActivity</string>
+    <string name="title_activity_on_boarding">OnBoardingActivity</string>
+    <string name="title_activity_register">RegisterActivity</string>
 </resources>
