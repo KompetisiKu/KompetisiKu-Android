@@ -1,0 +1,80 @@
+package com.kompetisiku.app.ui.components
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
+import com.kompetisiku.app.R
+import com.kompetisiku.app.ui.theme.Dimens
+import com.kompetisiku.app.ui.theme.KompetisiKuTheme
+import com.kompetisiku.app.ui.theme.White
+
+@Composable
+fun FormField(
+    modifier: Modifier = Modifier,
+    label: String,
+    description: String,
+    content: @Composable () -> Unit
+) {
+    Column(
+        modifier = modifier
+            .background(White)
+            .padding(
+                Dimens.paddingHorizontalMedium,
+                Dimens.paddingVerticalLarge
+            ),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(Dimens.spaceLarge)
+    ) {
+        Column(
+            horizontalAlignment = Alignment.Start,
+            verticalArrangement = Arrangement.spacedBy(Dimens.spaceSmall)
+        ) {
+            Text(
+                text = label,
+                textAlign = TextAlign.Start,
+                style = MaterialTheme.typography.titleMedium
+            )
+            Text(
+                text = description,
+                textAlign = TextAlign.Start,
+                style = MaterialTheme.typography.bodyLarge
+            )
+        }
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(Dimens.spaceSmall)
+        ) {
+            content()
+        }
+    }
+}
+
+@Preview
+@Composable
+fun PreviewFormField() {
+    KompetisiKuTheme {
+        FormField(
+            label = stringResource(R.string.label_register_1),
+            description = stringResource(R.string.description_register_1)
+        ) {
+            AppTextField(
+                modifier = Modifier.fillMaxWidth(),
+                value = "",
+                onValueChange = { },
+                placeholder = stringResource(R.string.dummy_text),
+                keyboardType = KeyboardType.Text
+            )
+        }
+    }
+}

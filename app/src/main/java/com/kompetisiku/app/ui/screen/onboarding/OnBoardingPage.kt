@@ -1,4 +1,4 @@
-package com.kompetisiku.app.ui.components
+package com.kompetisiku.app.ui.screen.onboarding
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -16,8 +17,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import com.kompetisiku.app.ui.navigation.Page
-import com.kompetisiku.app.ui.navigation.pages
+import com.kompetisiku.app.ui.navigation.OnBoardingPage
+import com.kompetisiku.app.ui.navigation.onBoardingPages
+import com.kompetisiku.app.ui.theme.Colors
 import com.kompetisiku.app.ui.theme.Dimens
 import com.kompetisiku.app.ui.theme.KompetisiKuTheme
 import com.kompetisiku.app.ui.theme.White
@@ -25,7 +27,7 @@ import com.kompetisiku.app.ui.theme.White
 @Composable
 fun OnBoardingPage(
     modifier: Modifier = Modifier,
-    page: Page
+    page: OnBoardingPage
 ) {
     Column(
         modifier = modifier,
@@ -68,6 +70,10 @@ fun OnBoardingPage(
 @Composable
 fun PreviewOnBoardingPage() {
     KompetisiKuTheme {
-        OnBoardingPage(page = pages[0])
+        Surface (
+            color = Colors.primary
+        ) {
+            OnBoardingPage(page = onBoardingPages[0])
+        }
     }
 }

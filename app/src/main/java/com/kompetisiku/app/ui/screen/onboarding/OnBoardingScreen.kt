@@ -3,7 +3,6 @@ package com.kompetisiku.app.ui.screen.onboarding
 import android.content.Intent
 import androidx.activity.ComponentActivity
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -14,7 +13,7 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ArrowForward
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.remember
@@ -26,8 +25,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.kompetisiku.app.R
 import com.kompetisiku.app.ui.activity.register.RegisterActivity
 import com.kompetisiku.app.ui.components.AppButton
-import com.kompetisiku.app.ui.components.OnBoardingPage
-import com.kompetisiku.app.ui.navigation.pages
+import com.kompetisiku.app.ui.components.PageIndicator
+import com.kompetisiku.app.ui.navigation.onBoardingPages
+import com.kompetisiku.app.ui.theme.Colors
 import com.kompetisiku.app.ui.theme.Dimens
 import com.kompetisiku.app.ui.theme.KompetisiKuTheme
 import kotlinx.coroutines.launch
@@ -41,10 +41,9 @@ fun OnBoardingScreen(
     Column(
         modifier = modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.primary)
     ) {
         val pagerState = rememberPagerState(initialPage = 0) {
-            pages.size
+            onBoardingPages.size
         }
 
         val buttonState = remember {
@@ -59,7 +58,7 @@ fun OnBoardingScreen(
         }
 
         HorizontalPager(state = pagerState) { index ->
-            OnBoardingPage(page = pages[index])
+            OnBoardingPage(page = onBoardingPages[index])
         }
 
         Spacer(modifier = Modifier.weight(1f))
@@ -78,7 +77,7 @@ fun OnBoardingScreen(
 
             if (pagerState.currentPage == 2) {
                 AppButton(
-                    containerColor = MaterialTheme.colorScheme.secondary,
+                    containerColor = Colors.secondary,
                     text = stringResource(buttonState.value),
                     large = true,
                     onClick = {
@@ -87,7 +86,7 @@ fun OnBoardingScreen(
                 )
             } else {
                 AppButton(
-                    containerColor = MaterialTheme.colorScheme.secondary,
+                    containerColor = Colors.secondary,
                     text = stringResource(buttonState.value),
                     imageVector = Icons.Rounded.ArrowForward,
                     large = true,
@@ -102,7 +101,7 @@ fun OnBoardingScreen(
             }
 
             PageIndicator(
-                pageSize = pages.size,
+                pageSize = onBoardingPages.size,
                 activePage = pagerState.currentPage
             )
         }
@@ -113,6 +112,11 @@ fun OnBoardingScreen(
 @Composable
 fun PreviewOnBoardingScreen() {
     KompetisiKuTheme {
-        OnBoardingScreen(activity = ComponentActivity())
+        Surface(
+            modifier = Modifier,
+            color = Colors.primary
+        ) {
+            OnBoardingScreen(activity = ComponentActivity())
+        }
     }
 }

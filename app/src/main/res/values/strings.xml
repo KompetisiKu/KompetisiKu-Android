@@ -18,9 +18,33 @@
 
     <string name="button_continue">Lanjut</string>
     <string name="button_create_account">Buat akun baru</string>
+    <string name="button_register">Daftar</string>
+    <string name="button_login">Masuk</string>
 
     <string name="dummy_text">Ini adalah teks</string>
     <string name="title_activity_welcome">WelcomeActivity</string>
     <string name="title_activity_on_boarding">OnBoardingActivity</string>
     <string name="title_activity_register">RegisterActivity</string>
+
+    <string name="title_register">Daftar</string>
+
+    <string name="label_register_1">Data Registrasi</string>
+    <string name="label_register_2">Data Pribadi</string>
+    <string name="label_register_3">Data Tambahan</string>
+
+    <string name="description_register_1">Formulir dibawah ini diperlukan untuk melakukan autentikasi akun.</string>
+    <string name="description_register_2">Formulir dibawah ini diperlukan untuk dipakai pada saat pendaftaran lomba nanti.</string>
+    <string name="description_register_3">Formulir dibawah ini diperlukan untuk merekomendasikan lomba yang sesuai dengan preferensi Anda.</string>
+
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Konfirmasi password</string>
+
+    <string name="first_name">Nama depan</string>
+    <string name="last_name">Nama belakang</string>
+    <string name="gender">Jenis kelamin</string>
+    <string name="birth_date">Tanggal lahir</string>
+
+    <string name="icon_back">Back</string>
 </resources>

@@ -24,6 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.kompetisiku.app.R
 import com.kompetisiku.app.ui.activity.onboarding.OnBoardingActivity
 import com.kompetisiku.app.ui.components.AppButton
+import com.kompetisiku.app.ui.theme.Colors
 import com.kompetisiku.app.ui.theme.Dimens
 import com.kompetisiku.app.ui.theme.KompetisiKuTheme
 import com.kompetisiku.app.ui.theme.White
@@ -36,7 +37,7 @@ fun WelcomeScreen(
     Box(
         modifier = modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.primary),
+            .background(Colors.primary),
     ) {
         Image(
             modifier = Modifier
@@ -82,7 +83,7 @@ fun WelcomeScreen(
             verticalArrangement = Arrangement.spacedBy(Dimens.spaceLarge)
         ) {
             AppButton(
-                containerColor = MaterialTheme.colorScheme.secondary,
+                containerColor = Colors.secondary,
                 text = stringResource(R.string.button_welcome),
                 imageVector = Icons.Rounded.ArrowForward,
                 large = true,

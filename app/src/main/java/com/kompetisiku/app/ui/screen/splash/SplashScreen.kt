@@ -6,7 +6,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
@@ -15,6 +14,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.kompetisiku.app.R
 import com.kompetisiku.app.ui.activity.welcome.WelcomeActivity
+import com.kompetisiku.app.ui.theme.Colors
 import com.kompetisiku.app.ui.theme.KompetisiKuTheme
 import kotlinx.coroutines.delay
 
@@ -30,7 +30,7 @@ fun SplashScreen(
     Box(
         modifier = modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.primary),
+            .background(Colors.primary),
         contentAlignment = Alignment.Center
     ) {
         Image(

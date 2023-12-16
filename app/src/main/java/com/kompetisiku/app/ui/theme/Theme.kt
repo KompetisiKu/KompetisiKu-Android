@@ -3,6 +3,7 @@ package com.kompetisiku.app.ui.theme
 import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
@@ -25,9 +26,10 @@ private val DarkColorScheme = darkColorScheme(
     tertiary = Orange700,
     secondaryContainer = Blue50,
     onSecondaryContainer = Blue500,
-    onSurface = Blue50,
+    onSurface = White,
     onSurfaceVariant = Blue50,
-    background = Blue50
+    background = Blue50,
+    primaryContainer = Blue400,
 )
 
 private val LightColorScheme = lightColorScheme(
@@ -36,9 +38,10 @@ private val LightColorScheme = lightColorScheme(
     tertiary = Orange500,
     secondaryContainer = Blue50,
     onSecondaryContainer = Blue700,
-    onSurface = Blue700,
+    onSurface = White,
     onSurfaceVariant = Blue50,
-    background = Blue50
+    background = Blue50,
+    primaryContainer = Blue400,
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),
@@ -93,6 +96,10 @@ object KompetisiKuTheme {
         @Composable
         get() = LocalDim.current
 }
+
+val Colors: ColorScheme
+    @Composable
+    get() = MaterialTheme.colorScheme
 
 val Dimens: Dimensions
     @Composable

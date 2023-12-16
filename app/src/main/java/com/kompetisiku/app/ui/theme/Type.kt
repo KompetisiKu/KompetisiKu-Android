@@ -34,13 +34,31 @@ val Typography = Typography(
         fontFamily = chakraPetchFamily,
         fontWeight = FontWeight.Bold,
         fontSize = 36.sp,
+        color = Black500,
         lineHeight = 48.sp,
+        letterSpacing = 0.sp
+    ),
+    titleMedium = TextStyle(
+        fontFamily = chakraPetchFamily,
+        fontWeight = FontWeight.Bold,
+        fontSize = 24.sp,
+        color = Black500,
+        lineHeight = 32.sp,
+        letterSpacing = 0.sp
+    ),
+    titleSmall = TextStyle(
+        fontFamily = chakraPetchFamily,
+        fontWeight = FontWeight.Bold,
+        fontSize = 20.sp,
+        color = Black500,
+        lineHeight = 26.sp,
         letterSpacing = 0.sp
     ),
     bodyLarge = TextStyle(
         fontFamily = interFamily,
         fontWeight = FontWeight.Medium,
         fontSize = 18.sp,
+        color = Gray400,
         lineHeight = 26.sp,
         letterSpacing = 0.5.sp
     ),
@@ -48,6 +66,7 @@ val Typography = Typography(
         fontFamily = interFamily,
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
+        color = Gray400,
         lineHeight = 24.sp,
         letterSpacing = 0.5.sp
     ),

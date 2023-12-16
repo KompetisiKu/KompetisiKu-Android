@@ -15,6 +15,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.kompetisiku.app.R
+import com.kompetisiku.app.ui.theme.Colors
 import com.kompetisiku.app.ui.theme.Dimens
 import com.kompetisiku.app.ui.theme.KompetisiKuTheme
 import com.kompetisiku.app.ui.theme.White
@@ -22,7 +23,7 @@ import com.kompetisiku.app.ui.theme.White
 @Composable
 fun AppButton(
     modifier: Modifier = Modifier,
-    containerColor: Color = MaterialTheme.colorScheme.primary,
+    containerColor: Color = Colors.primary,
     text: String,
     imageVector: ImageVector? = null,
     large: Boolean = false,
