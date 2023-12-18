@@ -14,6 +14,7 @@ data class Dimensions(
     val paddingVerticalMedium: Dp = 16.dp,
     val paddingVerticalSmall: Dp = 12.dp,
     val paddingVerticalExtraSmall: Dp = 8.dp,
+    val paddingVerticalSuperSmall: Dp = 4.dp,
     val buttonPaddingHorizontalMedium: Dp = 24.dp,
     val buttonPaddingVerticalMedium: Dp = 18.dp,
     val buttonPaddingHorizontalSmall: Dp = 18.dp,
@@ -33,5 +34,6 @@ data class Dimensions(
     val dividerSmall: Dp = 1.dp,
     val offsetX: Dp = 0.dp,
     val offsetY: Dp = 48.dp,
+    val border: Dp = 1.dp,
     val iconLarge: Dp = 32.dp
 )

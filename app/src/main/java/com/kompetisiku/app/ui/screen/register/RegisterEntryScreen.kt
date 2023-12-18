@@ -7,12 +7,15 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import com.kompetisiku.app.R
+import com.kompetisiku.app.ui.components.AppDatePicker
 import com.kompetisiku.app.ui.components.AppDropdown
 import com.kompetisiku.app.ui.components.AppTextField
 import com.kompetisiku.app.ui.components.FormField
@@ -87,10 +90,20 @@ fun RegisterEntryScreen(
                 placeholder = stringResource(R.string.gender),
                 items = listOf(),
                 onItemSelected = {},
-                onExpandedChange = {}
-            ) {
-                
+                onExpandedChange = {},
+                onDismissRequest = {}
+            )
+
+            val date = remember {
+                mutableStateOf("")
             }
+
+            AppDatePicker(
+                modifier = Modifier.fillMaxWidth(),
+                value = date.value,
+                onValueChange = { date.value = it },
+                placeholder = stringResource(R.string.birth_date)
+            )
         }
     }
 }

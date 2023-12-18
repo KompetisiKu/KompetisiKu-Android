@@ -46,6 +46,8 @@
     <string name="gender">Jenis kelamin</string>
     <string name="birth_date">Tanggal lahir</string>
 
+    <string name="competition_category">Kategori lomba</string>
+
     <string name="icon_back">Kembali</string>
     <string name="cancel">Batal</string>
     <string name="apply">Terapkan</string>

@@ -26,6 +26,7 @@ fun SplashScreen(
     LaunchedEffect(true) {
         delay(2000)
         activity.startActivity(Intent(activity, WelcomeActivity::class.java))
+        activity.finish()
     }
     Box(
         modifier = modifier
