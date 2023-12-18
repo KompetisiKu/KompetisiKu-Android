@@ -80,7 +80,6 @@ fun AppDropdown(
             isError = isError,
             colors = OutlinedTextFieldDefaults.colors(
                 unfocusedBorderColor = Gray200,
-                focusedBorderColor = Colors.primary,
                 unfocusedContainerColor = White,
                 focusedContainerColor = Gray50
             ),
