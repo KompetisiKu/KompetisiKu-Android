@@ -1,15 +1,18 @@
 package com.kompetisiku.app.ui.components
 
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.StrokeCap
@@ -21,23 +24,25 @@ import com.kompetisiku.app.ui.theme.KompetisiKuTheme
 import com.kompetisiku.app.ui.theme.White
 
 @Composable
-fun ProgressBar(
+fun ProgressBarPage(
     modifier: Modifier = Modifier,
     progress: Int = 1,
     maxProgress: Int
 ) {
+    val animatedProgress = remember { Animatable(initialValue = 0f) }
+
+    LaunchedEffect(progress) {
+        animatedProgress.animateTo(progress.toFloat() / maxProgress, animationSpec = tween(1000))
+    }
+
     Row(
         modifier = modifier
-            .fillMaxWidth()
             .background(Colors.primaryContainer)
             .padding(
                 Dimens.paddingHorizontalExtraSmall,
                 Dimens.paddingVerticalExtraSmall
             ),
-        horizontalArrangement = Arrangement.spacedBy(
-            Dimens.spaceSmall,
-            Alignment.CenterHorizontally
-        ),
+        horizontalArrangement = Arrangement.spacedBy(Dimens.spaceSmall),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(
@@ -55,7 +60,7 @@ fun ProgressBar(
                 .weight(1f)
                 .size(Dimens.progressBarHeight)
             ,
-            progress = progress.toFloat() / maxProgress,
+            progress = animatedProgress.value,
             color = Colors.secondary,
             trackColor = White,
             strokeCap = StrokeCap.Round,
@@ -75,8 +80,8 @@ fun ProgressBar(
 
 @Preview
 @Composable
-fun PreviewProgressBar() {
+fun PreviewProgressBarPage() {
     KompetisiKuTheme {
-        ProgressBar(progress = 1, maxProgress = 2)
+        ProgressBarPage(progress = 1, maxProgress = 2)
     }
 }

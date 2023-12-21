@@ -1,5 +1,6 @@
 package com.kompetisiku.app.ui.components
 
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material3.DropdownMenuItem
@@ -41,11 +42,13 @@ fun AppDropdown(
     onDismissRequest: () -> Unit
 ) {
     ExposedDropdownMenuBox(
+        modifier = modifier,
         expanded = isExpanded,
         onExpandedChange = onExpandedChange,
     ) {
         OutlinedTextField(
-            modifier = modifier
+            modifier = Modifier
+                .fillMaxWidth()
                 .menuAnchor()
                 .clip(ShapeDefaults.Small),
             value = value,

@@ -1,11 +1,10 @@
-package com.kompetisiku.app.ui.screen.register
+package com.kompetisiku.app.ui.screen.profile
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -19,13 +18,12 @@ import com.kompetisiku.app.ui.components.AppDatePicker
 import com.kompetisiku.app.ui.components.AppDropdown
 import com.kompetisiku.app.ui.components.AppTextField
 import com.kompetisiku.app.ui.components.FieldContainer
-import com.kompetisiku.app.ui.theme.Colors
 import com.kompetisiku.app.ui.theme.Dimens
 import com.kompetisiku.app.ui.theme.KompetisiKuTheme
 
 @Composable
-fun RegisterEntryScreen(
-    modifier: Modifier = Modifier,
+fun ProfileEditScreen(
+    modifier: Modifier = Modifier
 ) {
     Column(
         modifier = modifier.verticalScroll(rememberScrollState()),
@@ -33,8 +31,8 @@ fun RegisterEntryScreen(
         verticalArrangement = Arrangement.spacedBy(Dimens.spaceSmall)
     ) {
         FieldContainer(
-            label = stringResource(R.string.label_register_1),
-            description = stringResource(R.string.description_register_1)
+            label = stringResource(R.string.label_profile_1),
+            description = stringResource(R.string.description_profile_1)
         ) {
             AppTextField(
                 modifier = Modifier.fillMaxWidth(),
@@ -50,24 +48,10 @@ fun RegisterEntryScreen(
                 placeholder = stringResource(R.string.email),
                 keyboardType = KeyboardType.Email
             )
-            AppTextField(
-                modifier = Modifier.fillMaxWidth(),
-                value = "",
-                onValueChange = {},
-                placeholder = stringResource(R.string.password),
-                keyboardType = KeyboardType.Password
-            )
-            AppTextField(
-                modifier = Modifier.fillMaxWidth(),
-                value = "",
-                onValueChange = {},
-                placeholder = stringResource(R.string.confirm_password),
-                keyboardType = KeyboardType.Password
-            )
         }
         FieldContainer(
-            label = stringResource(R.string.label_register_2),
-            description = stringResource(R.string.description_register_2)
+            label = stringResource(R.string.label_profile_2),
+            description = stringResource(R.string.description_profile_2)
         ) {
             AppTextField(
                 modifier = Modifier.fillMaxWidth(),
@@ -103,19 +87,48 @@ fun RegisterEntryScreen(
                 onValueChange = { date.value = it },
                 placeholder = stringResource(R.string.birth_date)
             )
+            AppTextField(
+                modifier = Modifier.fillMaxWidth(),
+                value = "",
+                onValueChange = {},
+                placeholder = stringResource(R.string.phone_number),
+                keyboardType = KeyboardType.Phone
+            )
+            AppDropdown(
+                modifier = Modifier.fillMaxWidth(),
+                value = "",
+                placeholder = stringResource(R.string.city_of_domicile),
+                items = listOf(),
+                onItemSelected = {},
+                onExpandedChange = {},
+                onDismissRequest = {}
+            )
+            AppDropdown(
+                modifier = Modifier.fillMaxWidth(),
+                value = "",
+                placeholder = stringResource(R.string.current_education),
+                items = listOf(),
+                onItemSelected = {},
+                onExpandedChange = {},
+                onDismissRequest = {}
+            )
+            AppDropdown(
+                modifier = Modifier.fillMaxWidth(),
+                value = "",
+                placeholder = stringResource(R.string.last_education),
+                items = listOf(),
+                onItemSelected = {},
+                onExpandedChange = {},
+                onDismissRequest = {}
+            )
         }
     }
 }
 
 @Preview
 @Composable
-fun PreviewRegisterEntryScreen() {
+fun PreviewProfileEditScreen() {
     KompetisiKuTheme {
-        Surface(
-            modifier = Modifier,
-            color = Colors.background
-        ) {
-            RegisterEntryScreen()
-        }
+        ProfileEditScreen()
     }
 }

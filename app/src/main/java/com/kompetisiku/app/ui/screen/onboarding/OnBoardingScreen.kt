@@ -8,7 +8,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material.icons.Icons
@@ -30,6 +32,7 @@ import com.kompetisiku.app.ui.navigation.onBoardingPages
 import com.kompetisiku.app.ui.theme.Colors
 import com.kompetisiku.app.ui.theme.Dimens
 import com.kompetisiku.app.ui.theme.KompetisiKuTheme
+import com.kompetisiku.app.ui.theme.Orange600
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -41,6 +44,8 @@ fun OnBoardingScreen(
     Column(
         modifier = modifier
             .fillMaxSize()
+            .statusBarsPadding()
+            .navigationBarsPadding()
     ) {
         val pagerState = rememberPagerState(initialPage = 0) {
             onBoardingPages.size
@@ -77,7 +82,9 @@ fun OnBoardingScreen(
 
             if (pagerState.currentPage == 2) {
                 AppButton(
+                    modifier = Modifier.fillMaxWidth(),
                     containerColor = Colors.secondary,
+                    borderColor = Orange600,
                     text = stringResource(buttonState.value),
                     large = true,
                     onClick = {
@@ -86,7 +93,9 @@ fun OnBoardingScreen(
                 )
             } else {
                 AppButton(
+                    modifier = Modifier.fillMaxWidth(),
                     containerColor = Colors.secondary,
+                    borderColor = Orange600,
                     text = stringResource(buttonState.value),
                     imageVector = Icons.Rounded.ArrowForward,
                     large = true,

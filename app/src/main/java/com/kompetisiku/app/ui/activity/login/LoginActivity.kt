@@ -1,4 +1,4 @@
-package com.kompetisiku.app.ui.activity.welcome
+package com.kompetisiku.app.ui.activity.login
 
 import android.graphics.Color
 import android.os.Bundle
@@ -10,14 +10,17 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.core.view.WindowCompat
-import com.kompetisiku.app.ui.screen.welcome.WelcomeScreen
+import com.kompetisiku.app.ui.screen.login.LoginScreen
 import com.kompetisiku.app.ui.theme.Colors
 import com.kompetisiku.app.ui.theme.KompetisiKuTheme
 
-class WelcomeActivity : ComponentActivity() {
+class LoginActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge(
             statusBarStyle = SystemBarStyle.light(
+                Color.TRANSPARENT, Color.TRANSPARENT
+            ),
+            navigationBarStyle = SystemBarStyle.light(
                 Color.TRANSPARENT, Color.TRANSPARENT
             )
         )
@@ -29,7 +32,7 @@ class WelcomeActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = Colors.background
                 ) {
-                    WelcomeScreen(activity = this)
+                    LoginScreen(activity = this)
                 }
             }
         }

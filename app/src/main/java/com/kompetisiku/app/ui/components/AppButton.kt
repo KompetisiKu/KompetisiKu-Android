@@ -1,7 +1,7 @@
 package com.kompetisiku.app.ui.components
 
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
@@ -15,6 +15,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.kompetisiku.app.R
+import com.kompetisiku.app.ui.theme.Blue600
 import com.kompetisiku.app.ui.theme.Colors
 import com.kompetisiku.app.ui.theme.Dimens
 import com.kompetisiku.app.ui.theme.KompetisiKuTheme
@@ -25,28 +26,34 @@ fun AppButton(
     modifier: Modifier = Modifier,
     containerColor: Color = Colors.primary,
     text: String,
+    textColor: Color = White,
+    borderColor: Color = Blue600,
     imageVector: ImageVector? = null,
     large: Boolean = false,
-    fillMaxWidth: Boolean = true,
     onClick: () -> Unit,
 ) {
     Button(
-        modifier = if (fillMaxWidth) modifier
-            .fillMaxWidth() else modifier,
+        modifier = modifier
+            .border(
+                width = Dimens.borderButton,
+                color = borderColor,
+                shape = ButtonDefaults.shape
+            ),
         colors = ButtonDefaults.buttonColors(
-            containerColor = containerColor
+            containerColor = containerColor,
         ),
-        contentPadding = if (large) {
-            PaddingValues(
+        contentPadding = if (large) PaddingValues(
                 Dimens.buttonPaddingHorizontalMedium,
                 Dimens.buttonPaddingVerticalMedium
-            )
-        } else PaddingValues(),
+        ) else PaddingValues(
+            Dimens.buttonPaddingHorizontalSmall,
+            Dimens.buttonPaddingVerticalSmall
+        ),
         onClick = { onClick() }
     ) {
         Text(
             text = text,
-            color = White,
+            color = textColor,
             textAlign = TextAlign.Center,
             style = if (large) MaterialTheme.typography.bodyLarge else MaterialTheme.typography.bodyMedium
         )

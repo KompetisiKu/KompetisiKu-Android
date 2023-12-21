@@ -6,18 +6,20 @@ import androidx.compose.ui.unit.dp
 data class Dimensions(
     val paddingDefault: Dp = 0.dp,
     val paddingMedium: Dp = 16.dp,
+    val paddingTopBottomBar: Dp = 8.dp,
     val paddingHorizontalLarge: Dp = 24.dp,
     val paddingHorizontalMedium: Dp = 16.dp,
     val paddingHorizontalSmall: Dp = 12.dp,
     val paddingHorizontalExtraSmall: Dp = 8.dp,
+    val paddingVerticalExtraLarge: Dp = 40.dp,
     val paddingVerticalLarge: Dp = 24.dp,
     val paddingVerticalMedium: Dp = 16.dp,
     val paddingVerticalSmall: Dp = 12.dp,
     val paddingVerticalExtraSmall: Dp = 8.dp,
     val paddingVerticalSuperSmall: Dp = 4.dp,
     val buttonPaddingHorizontalMedium: Dp = 24.dp,
-    val buttonPaddingVerticalMedium: Dp = 18.dp,
     val buttonPaddingHorizontalSmall: Dp = 18.dp,
+    val buttonPaddingVerticalMedium: Dp = 18.dp,
     val buttonPaddingVerticalSmall: Dp = 12.dp,
     val spaceLarge: Dp = 24.dp,
     val spaceMedium: Dp = 16.dp,
@@ -35,5 +37,10 @@ data class Dimensions(
     val offsetX: Dp = 0.dp,
     val offsetY: Dp = 48.dp,
     val border: Dp = 1.dp,
-    val iconLarge: Dp = 32.dp
+    val borderButton: Dp = 2.dp,
+    val iconLarge: Dp = 32.dp,
+    val minHeightSupportingText: Dp = 16.dp,
+    val paddingTextField: Dp = 16.dp,
+    val paddingTopSupporting: Dp = 4.dp,
+    val profileImage: Dp = 64.dp
 )

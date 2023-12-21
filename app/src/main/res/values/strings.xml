@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">KompetisiKu</string>
+    <string name="app_version">Versi %s</string>
     <string name="title_activity_splash">SplashActivity</string>
 
     <string name="title_welcome">Selamat Datang di KompetisiKu</string>
     <string name="description_welcome">Bersiaplah untuk meraih kemenangan dan membangun prestasimu di sini.</string>
 
-    <string name="button_welcome">Ayo mulai</string>
     <string name="link_login">Sudah punya akun? <b>Masuk</b></string>
 
     <string name="title_onboarding_1">Tingkatkan Kemampuan Anda</string>
@@ -16,10 +16,14 @@
     <string name="decription_onboarding_2">Permudah pencarian &amp; pendaftaran lomba dengan satu aplikasi.</string>
     <string name="decription_onboarding_3">Kegiatan lomba Anda dapat dipantau dengan mudah dan cepat.</string>
 
+    <string name="button_welcome">Ayo mulai</string>
     <string name="button_continue">Lanjut</string>
     <string name="button_create_account">Buat akun baru</string>
     <string name="button_register">Daftar</string>
     <string name="button_login">Masuk</string>
+    <string name="button_save_changes">Simpan Perubahan</string>
+    <string name="button_logout">Keluar</string>
+    <string name="button_no">Tidak</string>
 
     <string name="dummy_text">Ini adalah teks</string>
     <string name="title_activity_welcome">WelcomeActivity</string>
@@ -36,6 +40,9 @@
     <string name="description_register_2">Formulir dibawah ini diperlukan untuk dipakai pada saat pendaftaran lomba nanti.</string>
     <string name="description_register_3">Formulir dibawah ini diperlukan untuk merekomendasikan lomba yang sesuai dengan preferensi Anda.</string>
 
+    <string name="label_login">Selamat Datang Kembali!</string>
+    <string name="description_login">Isi formulir dibawah ini untuk mengakses aplikasi.</string>
+
     <string name="username">Username</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
@@ -45,10 +52,50 @@
     <string name="last_name">Nama belakang</string>
     <string name="gender">Jenis kelamin</string>
     <string name="birth_date">Tanggal lahir</string>
+    <string name="phone_number">Nomor ponsel</string>
+    <string name="city_of_domicile">Kota domisili</string>
+    <string name="current_education">Pendidikan saat ini</string>
+    <string name="last_education">Pendidikan terakhir</string>
 
-    <string name="competition_category">Kategori lomba</string>
+    <string name="title_competition_category">Kategori Lomba</string>
+    <string name="description_competition_category">Pilih kategori lomba yang Anda minati dibawah ini, maksimal 3.</string>
+    <string name="error_competition_category">Pilih minimal 1 kategori lomba</string>
+
+    <string name="title_prize_pool">Total Hadiah</string>
+    <string name="description_prize_pool">Seberapa penting total hadiah menurutmu?</string>
+
+    <string name="title_register_price">Harga Pendaftaran</string>
+    <string name="description_register_price">Seberapa penting harga pendaftaran menurutmu?</string>
+
+    <string name="placeholder_dropdown">Pilih salah satu</string>
+
+    <string name="menu_home">Beranda</string>
+    <string name="menu_activities">Kegiatan</string>
+    <string name="menu_certificates">Penghargaan</string>
+    <string name="menu_profile">Profil</string>
+
+    <string name="profile_name">Nama lengkap</string>
+    <string name="profile_email">email@mail.com</string>
+    <string name="profile_edit">Edit Profile</string>
+    <string name="profile_progress">Isi profil Anda untuk kelengkapan informasi.</string>
+
+    <string name="account_settings">Pengaturan Akun</string>
+    <string name="wishlist_competition">Wishlist lomba</string>
+    <string name="notification">Notifikasi</string>
+    <string name="change_languages">Ganti bahasa</string>
+    <string name="logout">Keluar akun</string>
+
+    <string name="label_profile_1">Data Autentikasi</string>
+    <string name="label_profile_2">Data Pribadi</string>
+
+    <string name="description_profile_1">Data dibawah ini diperlukan untuk melakukan autentikasi akun.</string>
+    <string name="description_profile_2">Data dibawah ini diperlukan untuk dipakai pada saat pendaftaran lomba nanti.</string>
+
+    <string name="modal_title_logout">Mau keluar dari akun Anda?</string>
+    <string name="modal_description_logout">Kamu harus masuk lagi jika ingin melihat kegiatan lomba, penghargaan, dan fitur aplikasi lainnya.</string>
 
     <string name="icon_back">Kembali</string>
     <string name="cancel">Batal</string>
     <string name="apply">Terapkan</string>
+    <string name="title_activity_login">LoginActivity</string>
 </resources>

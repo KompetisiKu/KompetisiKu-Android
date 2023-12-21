@@ -2,17 +2,18 @@ package com.kompetisiku.app.ui.theme
 
 import android.app.Activity
 import android.os.Build
-import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material.ripple.LocalRippleTheme
+import androidx.compose.material.ripple.RippleAlpha
+import androidx.compose.material.ripple.RippleTheme
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
@@ -20,18 +21,16 @@ import androidx.core.view.WindowCompat
 
 val LocalDim = compositionLocalOf { Dimensions() }
 
-private val DarkColorScheme = darkColorScheme(
-    primary = Blue500,
-    secondary = Orange500,
-    tertiary = Orange700,
-    secondaryContainer = Blue50,
-    onSecondaryContainer = Blue500,
-    onSurface = White,
-    onSurfaceVariant = Blue50,
-    background = Blue50,
-    primaryContainer = Blue400,
-    error = Red
-)
+private object KompetisiKuRippleTheme : RippleTheme {
+    @Composable
+    override fun defaultColor() = Black500
+
+    @Composable
+    override fun rippleAlpha(): RippleAlpha = RippleTheme.defaultRippleAlpha(
+        Black500,
+        lightTheme = true
+    )
+}
 
 private val LightColorScheme = lightColorScheme(
     primary = Blue500,
@@ -58,7 +57,6 @@ private val LightColorScheme = lightColorScheme(
 
 @Composable
 fun KompetisiKuTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = false,
     dimensions: Dimensions = Dimensions(),
@@ -67,18 +65,18 @@ fun KompetisiKuTheme(
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+            dynamicLightColorScheme(context)
         }
 
-        darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = colorScheme.primary.toArgb()
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
+            window.statusBarColor = Color.Transparent.toArgb()
+            window.navigationBarColor = Color.Transparent.toArgb()
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = true
         }
     }
 
@@ -86,7 +84,10 @@ fun KompetisiKuTheme(
         colorScheme = colorScheme,
         typography = Typography,
         content = {
-            CompositionLocalProvider(LocalDim provides dimensions) {
+            CompositionLocalProvider(
+                LocalDim provides dimensions,
+                LocalRippleTheme provides KompetisiKuRippleTheme
+            ) {
                 content()
             }
         }

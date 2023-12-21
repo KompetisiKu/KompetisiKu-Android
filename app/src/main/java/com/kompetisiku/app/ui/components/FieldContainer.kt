@@ -20,10 +20,10 @@ import com.kompetisiku.app.ui.theme.KompetisiKuTheme
 import com.kompetisiku.app.ui.theme.White
 
 @Composable
-fun FormField(
+fun FieldContainer(
     modifier: Modifier = Modifier,
     label: String,
-    description: String,
+    description: String? = null,
     content: @Composable () -> Unit
 ) {
     Column(
@@ -37,6 +37,7 @@ fun FormField(
         verticalArrangement = Arrangement.spacedBy(Dimens.spaceLarge)
     ) {
         Column(
+            modifier = Modifier.fillMaxWidth(),
             horizontalAlignment = Alignment.Start,
             verticalArrangement = Arrangement.spacedBy(Dimens.spaceSmall)
         ) {
@@ -45,11 +46,13 @@ fun FormField(
                 textAlign = TextAlign.Start,
                 style = MaterialTheme.typography.titleMedium
             )
-            Text(
-                text = description,
-                textAlign = TextAlign.Start,
-                style = MaterialTheme.typography.bodyLarge
-            )
+            if (description != null) {
+                Text(
+                    text = description,
+                    textAlign = TextAlign.Start,
+                    style = MaterialTheme.typography.bodyLarge
+                )
+            }
         }
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -62,9 +65,9 @@ fun FormField(
 
 @Preview
 @Composable
-fun PreviewFormField() {
+fun PreviewFieldContainer() {
     KompetisiKuTheme {
-        FormField(
+        FieldContainer(
             label = stringResource(R.string.label_register_1),
             description = stringResource(R.string.description_register_1)
         ) {

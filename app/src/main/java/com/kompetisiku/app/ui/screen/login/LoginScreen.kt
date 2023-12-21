@@ -1,13 +1,20 @@
-package com.kompetisiku.app.ui.activity.register
+package com.kompetisiku.app.ui.screen.login
 
+import android.content.Intent
+import androidx.activity.ComponentActivity
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
-import androidx.compose.material.icons.rounded.ArrowForward
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -15,44 +22,39 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.compose.rememberNavController
 import com.kompetisiku.app.R
+import com.kompetisiku.app.ui.activity.main.MainActivity
 import com.kompetisiku.app.ui.components.AppButton
-import com.kompetisiku.app.ui.components.ProgressBar
-import com.kompetisiku.app.ui.navigation.Screen
-import com.kompetisiku.app.ui.screen.register.RegisterEntryScreen
-import com.kompetisiku.app.ui.screen.register.RegisterPublishScreen
+import com.kompetisiku.app.ui.components.AppTextField
+import com.kompetisiku.app.ui.components.FieldContainer
 import com.kompetisiku.app.ui.theme.Colors
 import com.kompetisiku.app.ui.theme.Dimens
 import com.kompetisiku.app.ui.theme.KompetisiKuTheme
+import com.kompetisiku.app.ui.theme.Orange600
 import com.kompetisiku.app.ui.theme.White
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun RegisterForm(
+fun LoginScreen(
     modifier: Modifier = Modifier,
-    navController: NavHostController = rememberNavController(),
+    activity: ComponentActivity
 ) {
-    val navBackStackEntry by navController.currentBackStackEntryAsState()
-    val currentRoute = navBackStackEntry?.destination?.route
-
     Scaffold(
+        modifier = modifier,
+        contentWindowInsets = WindowInsets(Dimens.paddingDefault),
         topBar = {
             TopAppBar(
-                colors = topAppBarColors(
+                colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = Colors.primary
                 ),
                 title = {
@@ -66,7 +68,7 @@ fun RegisterForm(
                 navigationIcon = {
                     IconButton(
                         onClick = {
-                            navController.popBackStack()
+                            activity.finish()
                         }
                     ) {
                         Icon(
@@ -86,58 +88,62 @@ fun RegisterForm(
                         shape = RectangleShape
                     )
                     .background(White)
+                    .navigationBarsPadding()
                     .padding(
                         Dimens.paddingHorizontalMedium,
                         Dimens.paddingVerticalLarge
                     )
             ) {
-                if (currentRoute == Screen.RegisterEntry.route) {
-                    AppButton(
-                        containerColor = Colors.secondary,
-                        text = stringResource(R.string.button_continue),
-                        imageVector = Icons.Rounded.ArrowForward,
-                        large = true,
-                        onClick = {
-                            navController.navigate(Screen.RegisterPublish.route)
-                        }
-                    )
-                } else {
-                    AppButton(
-                        containerColor = Colors.secondary,
-                        text = stringResource(R.string.button_register),
-                        large = true,
-                        onClick = {
-
-                        }
-                    )
-                }
+                AppButton(
+                    modifier = Modifier.fillMaxWidth(),
+                    containerColor = Colors.secondary,
+                    borderColor = Orange600,
+                    text = stringResource(R.string.button_login),
+                    large = true,
+                    onClick = {
+                        val intent = Intent(activity, MainActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        activity.startActivity(intent)
+                        activity.finish()
+                    }
+                )
             }
         }
     ) { innerPadding ->
         Column(
             modifier = Modifier
                 .padding(innerPadding)
+                .verticalScroll(rememberScrollState()),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(Dimens.spaceSmall)
         ) {
-            ProgressBar(maxProgress = 2)
-            NavHost(
-                navController = navController,
-                startDestination = Screen.RegisterEntry.route
+            FieldContainer(
+                label = stringResource(R.string.label_login),
+                description = stringResource(R.string.description_login)
             ) {
-                composable(Screen.RegisterEntry.route) {
-                    RegisterEntryScreen()
-                }
-                composable(Screen.RegisterPublish.route) {
-                    RegisterPublishScreen()
-                }
+                AppTextField(
+                    modifier = Modifier.fillMaxWidth(),
+                    value = "",
+                    onValueChange = {},
+                    placeholder = stringResource(R.string.email),
+                    keyboardType = KeyboardType.Email
+                )
+                AppTextField(
+                    modifier = Modifier.fillMaxWidth(),
+                    value = "",
+                    onValueChange = {},
+                    placeholder = stringResource(R.string.password),
+                    keyboardType = KeyboardType.Password
+                )
             }
         }
     }
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
-fun PreviewRegisterForm() {
+fun PreviewLoginScreen() {
     KompetisiKuTheme {
-        RegisterForm()
+        LoginScreen(activity = ComponentActivity())
     }
 }
