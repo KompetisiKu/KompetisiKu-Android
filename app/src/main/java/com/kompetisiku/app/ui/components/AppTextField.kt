@@ -4,7 +4,6 @@ import android.view.inputmethod.EditorInfo
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Icon
-import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.ShapeDefaults
@@ -41,14 +40,8 @@ fun AppTextField(
         value = value,
         onValueChange = onValueChange,
         shape = ShapeDefaults.Small,
-        textStyle = LocalTextStyle.current.copy(
-            color = Black300,
-        ),
         placeholder = {
-            Text(
-                text = placeholder,
-                color = Gray400
-            )
+            Text(text = placeholder)
         },
         trailingIcon = {
             if (trailingIcon != null) {
@@ -77,7 +70,16 @@ fun AppTextField(
         colors = OutlinedTextFieldDefaults.colors(
             unfocusedBorderColor = Gray200,
             focusedBorderColor = Colors.primary,
-            unfocusedContainerColor = White
+            unfocusedContainerColor = White,
+            focusedContainerColor = White,
+            unfocusedLeadingIconColor = Gray400,
+            focusedLeadingIconColor = Gray400,
+            unfocusedTextColor = Black300,
+            focusedTextColor = Black300,
+            unfocusedTrailingIconColor = Gray400,
+            focusedTrailingIconColor = Gray400,
+            unfocusedPlaceholderColor = Gray400,
+            focusedPlaceholderColor = Gray400,
         ),
     )
 }

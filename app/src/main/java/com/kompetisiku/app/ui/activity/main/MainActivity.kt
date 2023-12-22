@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = Colors.background
                 ) {
-                    MainNavigation()
+                    MainNavigation(activity = this)
                 }
             }
         }

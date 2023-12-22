@@ -48,6 +48,19 @@
     <string name="password">Password</string>
     <string name="confirm_password">Konfirmasi password</string>
 
+    <string name="search_competitions">Cari lomba disini</string>
+    <string name="search_activities">Cari kegiatan Anda disini</string>
+    <string name="search_certificates">Cari penghargaan Anda disini</string>
+
+    <string name="filter_all">Semua</string>
+    <string name="filter_new">Terbaru</string>
+    <string name="filter_old">Terlama</string>
+    <string name="most_followed">Paling banyak diikuti</string>
+    <string name="most_viewed">Paling banyak dilihat</string>
+    <string name="filter_free">Gratis</string>
+    <string name="filter_cheapest">Termurah</string>
+    <string name="filter_expensive">Termahal</string>
+
     <string name="first_name">Nama depan</string>
     <string name="last_name">Nama belakang</string>
     <string name="gender">Jenis kelamin</string>
@@ -74,6 +87,8 @@
     <string name="menu_certificates">Penghargaan</string>
     <string name="menu_profile">Profil</string>
 
+    <string name="greetings">Halo pejuang, <b>%s</b></string>
+
     <string name="profile_name">Nama lengkap</string>
     <string name="profile_email">email@mail.com</string>
     <string name="profile_edit">Edit Profile</string>
@@ -95,7 +110,12 @@
     <string name="modal_description_logout">Kamu harus masuk lagi jika ingin melihat kegiatan lomba, penghargaan, dan fitur aplikasi lainnya.</string>
 
     <string name="icon_back">Kembali</string>
+    <string name="icon_close">Tutup</string>
+    <string name="icon_history">Riwayat</string>
     <string name="cancel">Batal</string>
     <string name="apply">Terapkan</string>
     <string name="title_activity_login">LoginActivity</string>
+
+    <string name="title_last_seen">Terakhir dilihat</string>
+    <string name="clean">Bersihkan</string>
 </resources>

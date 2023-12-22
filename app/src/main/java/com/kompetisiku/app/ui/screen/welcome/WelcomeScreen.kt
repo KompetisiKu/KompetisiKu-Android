@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ArrowForward
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -91,10 +92,15 @@ fun WelcomeScreen(
                 containerColor = Colors.secondary,
                 borderColor = Orange600,
                 text = stringResource(R.string.button_welcome),
-                imageVector = Icons.Rounded.ArrowForward,
                 large = true,
                 onClick = { activity.startActivity(Intent(activity, OnBoardingActivity::class.java)) }
-            )
+            ) {
+                Icon(
+                    imageVector = Icons.Rounded.ArrowForward,
+                    contentDescription = null,
+                    tint = White
+                )
+            }
             Text(
                 text = stringResource(R.string.link_login),
                 color = White,

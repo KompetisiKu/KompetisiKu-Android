@@ -7,7 +7,6 @@ import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.Icon
-import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.ShapeDefaults
@@ -23,7 +22,6 @@ import com.kompetisiku.app.ui.theme.Black300
 import com.kompetisiku.app.ui.theme.Colors
 import com.kompetisiku.app.ui.theme.Gray200
 import com.kompetisiku.app.ui.theme.Gray400
-import com.kompetisiku.app.ui.theme.Gray50
 import com.kompetisiku.app.ui.theme.KompetisiKuTheme
 import com.kompetisiku.app.ui.theme.White
 
@@ -55,21 +53,14 @@ fun AppDropdown(
             onValueChange = { },
             readOnly = true,
             shape = ShapeDefaults.Small,
-            textStyle = LocalTextStyle.current.copy(
-                color = Black300,
-            ),
             placeholder = {
-                Text(
-                    text = placeholder,
-                    color = Gray400
-                )
+                Text(text = placeholder)
             },
             trailingIcon = {
                 Icon(
                     modifier = Modifier.rotate(if (isExpanded) 180f else 0f),
                     imageVector = Icons.Default.KeyboardArrowDown,
                     contentDescription = null,
-                    tint = Gray400
                 )
             },
             supportingText = {
@@ -83,8 +74,17 @@ fun AppDropdown(
             isError = isError,
             colors = OutlinedTextFieldDefaults.colors(
                 unfocusedBorderColor = Gray200,
+                focusedBorderColor = Colors.primary,
                 unfocusedContainerColor = White,
-                focusedContainerColor = Gray50
+                focusedContainerColor = White,
+                unfocusedLeadingIconColor = Gray400,
+                focusedLeadingIconColor = Gray400,
+                unfocusedTextColor = Black300,
+                focusedTextColor = Black300,
+                unfocusedTrailingIconColor = Gray400,
+                focusedTrailingIconColor = Gray400,
+                unfocusedPlaceholderColor = Gray400,
+                focusedPlaceholderColor = Gray400,
             ),
         )
 

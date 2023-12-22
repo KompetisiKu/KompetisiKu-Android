@@ -36,7 +36,7 @@ fun SelectableItem(
     Column(
         modifier
             .border(
-                width = Dimens.border,
+                width = Dimens.borderButton,
                 color = if (selected) Blue600 else Gray200,
                 shape = MaterialTheme.shapes.extraLarge
             )
@@ -47,15 +47,15 @@ fun SelectableItem(
                 onClick()
             }
             .padding(
-                Dimens.paddingHorizontalExtraSmall,
-                Dimens.paddingVerticalSuperSmall
+                Dimens.paddingHorizontalMedium,
+                Dimens.paddingVerticalSmall
             )
     ) {
         Text(
             text = value,
             color = if (selected) White else Gray400,
             textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.bodyLarge
+            style = MaterialTheme.typography.bodySmall
         )
     }
 }

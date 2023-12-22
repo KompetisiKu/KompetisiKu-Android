@@ -15,6 +15,7 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ArrowForward
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
@@ -33,6 +34,7 @@ import com.kompetisiku.app.ui.theme.Colors
 import com.kompetisiku.app.ui.theme.Dimens
 import com.kompetisiku.app.ui.theme.KompetisiKuTheme
 import com.kompetisiku.app.ui.theme.Orange600
+import com.kompetisiku.app.ui.theme.White
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -97,7 +99,6 @@ fun OnBoardingScreen(
                     containerColor = Colors.secondary,
                     borderColor = Orange600,
                     text = stringResource(buttonState.value),
-                    imageVector = Icons.Rounded.ArrowForward,
                     large = true,
                     onClick = {
                         scope.launch {
@@ -106,7 +107,13 @@ fun OnBoardingScreen(
                             )
                         }
                     }
-                )
+                ) {
+                    Icon(
+                        imageVector = Icons.Rounded.ArrowForward,
+                        contentDescription = null,
+                        tint = White
+                    )
+                }
             }
 
             PageIndicator(

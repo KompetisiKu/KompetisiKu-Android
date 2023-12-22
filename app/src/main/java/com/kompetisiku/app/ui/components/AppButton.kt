@@ -1,16 +1,14 @@
 package com.kompetisiku.app.ui.components
 
-import androidx.compose.foundation.border
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -25,20 +23,19 @@ import com.kompetisiku.app.ui.theme.White
 fun AppButton(
     modifier: Modifier = Modifier,
     containerColor: Color = Colors.primary,
-    text: String,
+    text: String? = null,
     textColor: Color = White,
     borderColor: Color = Blue600,
-    imageVector: ImageVector? = null,
     large: Boolean = false,
     onClick: () -> Unit,
+    content: @Composable (() -> Unit)? = null
 ) {
     Button(
-        modifier = modifier
-            .border(
-                width = Dimens.borderButton,
-                color = borderColor,
-                shape = ButtonDefaults.shape
-            ),
+        modifier = modifier,
+        border = BorderStroke(
+            width = Dimens.borderButton,
+            color = borderColor
+        ),
         colors = ButtonDefaults.buttonColors(
             containerColor = containerColor,
         ),
@@ -51,18 +48,16 @@ fun AppButton(
         ),
         onClick = { onClick() }
     ) {
-        Text(
-            text = text,
-            color = textColor,
-            textAlign = TextAlign.Center,
-            style = if (large) MaterialTheme.typography.bodyLarge else MaterialTheme.typography.bodyMedium
-        )
-        if (imageVector != null) {
-            Icon(
-                imageVector = imageVector,
-                contentDescription = null,
-                tint = White
+        if (text != null) {
+            Text(
+                text = text,
+                color = textColor,
+                textAlign = TextAlign.Center,
+                style = if (large) MaterialTheme.typography.bodyLarge else MaterialTheme.typography.bodyMedium
             )
+        }
+        if (content != null) {
+            content()
         }
     }
 }

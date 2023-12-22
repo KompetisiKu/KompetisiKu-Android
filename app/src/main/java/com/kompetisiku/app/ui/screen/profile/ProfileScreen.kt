@@ -1,5 +1,7 @@
 package com.kompetisiku.app.ui.screen.profile
 
+import android.content.Intent
+import androidx.activity.ComponentActivity
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -48,6 +50,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.kompetisiku.app.BuildConfig
 import com.kompetisiku.app.R
+import com.kompetisiku.app.ui.activity.welcome.WelcomeActivity
 import com.kompetisiku.app.ui.components.AppButton
 import com.kompetisiku.app.ui.components.AppListItem
 import com.kompetisiku.app.ui.components.FieldItemContainer
@@ -69,7 +72,8 @@ import com.kompetisiku.app.ui.theme.interFamily
 @Composable
 fun ProfileScreen(
     modifier: Modifier = Modifier,
-    navController: NavHostController
+    navController: NavHostController,
+    activity: ComponentActivity
 ) {
     val sheetState = rememberModalBottomSheetState()
     var isSheetOpen by rememberSaveable {
@@ -259,7 +263,9 @@ fun ProfileScreen(
                         borderColor = Gray200,
                         text = stringResource(R.string.button_logout),
                         textColor = Colors.primary,
-                        onClick = {}
+                        onClick = {
+                            activity.startActivity(Intent(activity, WelcomeActivity::class.java))
+                        }
                     )
                     Spacer(modifier = modifier.height(Dimens.spaceLarge))
                     AppButton(
@@ -277,6 +283,9 @@ fun ProfileScreen(
 @Composable
 fun PreviewProfileScreen() {
     KompetisiKuTheme {
-        ProfileScreen(navController = rememberNavController())
+        ProfileScreen(
+            navController = rememberNavController(),
+            activity = ComponentActivity()
+        )
     }
 }

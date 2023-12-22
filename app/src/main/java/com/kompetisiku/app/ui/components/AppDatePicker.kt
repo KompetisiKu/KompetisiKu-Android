@@ -21,7 +21,6 @@ import com.kompetisiku.app.ui.theme.Black300
 import com.kompetisiku.app.ui.theme.Colors
 import com.kompetisiku.app.ui.theme.Gray200
 import com.kompetisiku.app.ui.theme.Gray400
-import com.kompetisiku.app.ui.theme.Gray50
 import com.kompetisiku.app.ui.theme.KompetisiKuTheme
 import com.kompetisiku.app.ui.theme.White
 import com.vanpra.composematerialdialogs.MaterialDialog
@@ -50,20 +49,13 @@ fun AppDatePicker(
             onValueChange = { },
             readOnly = true,
             shape = ShapeDefaults.Small,
-            textStyle = LocalTextStyle.current.copy(
-                color = Black300,
-            ),
             placeholder = {
-                Text(
-                    text = placeholder,
-                    color = Gray400
-                )
+                Text(text = placeholder)
             },
             trailingIcon = {
                 Icon(
                     imageVector = Icons.Default.DateRange,
-                    contentDescription = null,
-                    tint = Gray400
+                    contentDescription = null
                 )
             },
             supportingText = {
@@ -77,8 +69,17 @@ fun AppDatePicker(
             isError = isError,
             colors = OutlinedTextFieldDefaults.colors(
                 unfocusedBorderColor = Gray200,
+                focusedBorderColor = Colors.primary,
                 unfocusedContainerColor = White,
-                focusedContainerColor = Gray50,
+                focusedContainerColor = White,
+                unfocusedLeadingIconColor = Gray400,
+                focusedLeadingIconColor = Gray400,
+                unfocusedTextColor = Black300,
+                focusedTextColor = Black300,
+                unfocusedTrailingIconColor = Gray400,
+                focusedTrailingIconColor = Gray400,
+                unfocusedPlaceholderColor = Gray400,
+                focusedPlaceholderColor = Gray400,
             ),
         )
         Box(

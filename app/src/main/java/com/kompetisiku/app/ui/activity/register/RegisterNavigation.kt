@@ -121,12 +121,17 @@ fun RegisterNavigation(
                         containerColor = Colors.secondary,
                         borderColor = Orange600,
                         text = stringResource(R.string.button_continue),
-                        imageVector = Icons.Rounded.ArrowForward,
                         large = true,
                         onClick = {
                             navController.navigate(Screen.RegisterPublish.route)
                         }
-                    )
+                    ) {
+                        Icon(
+                            imageVector = Icons.Rounded.ArrowForward,
+                            contentDescription = null,
+                            tint = White
+                        )
+                    }
                 } else {
                     AppButton(
                         modifier = Modifier.fillMaxWidth(),
